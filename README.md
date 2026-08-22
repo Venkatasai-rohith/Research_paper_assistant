@@ -1,4 +1,4 @@
-# 📚 Research Assistant
+# 📚 Research Paper Assistant
 
 An AI-powered research paper assistant that lets you upload PDF papers and have intelligent conversations about them. Ask questions, get summaries, and compare papers using a hybrid retrieval-augmented generation (RAG) pipeline.
 

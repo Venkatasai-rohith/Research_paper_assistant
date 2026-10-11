@@ -32,13 +32,6 @@ class ResearchService:
 
         plan = EvidencePlan(intent=planner_output.intent, user_query=question, target_papers=planner_output.target_papers, retrieval_queries=planner_output.retrieval_queries,)
 
-        print("=" * 60)
-        print("PLANNER OUTPUT")
-        print("Intent:", plan.intent)
-        print("Target papers:", plan.target_papers)
-        print("Retrieval queries:", plan.retrieval_queries)
-        print("=" * 60)
-
         if plan.intent == Intent.UNANSWERABLE or not plan.target_papers:
 
             def unanswerable_stream():

@@ -13,18 +13,6 @@ def _prepare_rag(question: str, retriever_pairs):
     if not documents:
         return None, None, None
 
-    print("\n========== MULTI-PAPER HYBRID RESULTS ==========")
-
-    for i, doc in enumerate(documents, start=1):
-
-        print(f"\nChunk {i}")
-        print(f"Source : {doc.metadata.get('source')}")
-        print(f"Page   : {doc.metadata.get('page')}")
-        print(f"Index  : {doc.metadata.get('chunk_index')}")
-        print("-" * 60)
-        print(doc.page_content[:1000])
-
-        
     context = "\n\n".join(
         doc.page_content for doc in documents
     )

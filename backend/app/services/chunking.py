@@ -1,7 +1,10 @@
+import sys
+sys.modules.setdefault("tensorflow", None)
+
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.documents import Document
 
-from core.config import(CHUNK_SIZE, CHUNK_OVERLAP)
+from core.config import (CHUNK_SIZE, CHUNK_OVERLAP)
 
 def chunk_text(page_texts: list[str], source_name: str, paper_title: str):
 

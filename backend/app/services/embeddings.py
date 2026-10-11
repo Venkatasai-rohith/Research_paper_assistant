@@ -1,5 +1,7 @@
-from langchain_huggingface import HuggingFaceEmbeddings
+import sys
+sys.modules.setdefault("tensorflow", None)
 
+from langchain_huggingface import HuggingFaceEmbeddings
 from core.config import EMBEDDING_MODEL
 
 

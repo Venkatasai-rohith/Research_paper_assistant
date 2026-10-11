@@ -1,7 +1,12 @@
 from dotenv import load_dotenv
 import os
+from pathlib import Path
 
+# Load .env from current working dir or app dir
 load_dotenv()
+_app_env = Path(__file__).resolve().parent.parent / ".env"
+if _app_env.exists():
+    load_dotenv(dotenv_path=_app_env)
 
 GROK_API_KEY = os.getenv("GROK_API_KEY")
 

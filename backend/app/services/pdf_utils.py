@@ -1,4 +1,4 @@
-import fitz
+import pymupdf as fitz
 import re
 from exceptions import PDFExtractionError
 
@@ -33,8 +33,6 @@ def extract_text(pdf_path: str) -> list[str]:
         raise PDFExtractionError(
             "Unable to extract text from the uploaded PDF."
         ) from e
-
-import re
 
 
 def extract_abstract(page_texts: list[str]) -> str:

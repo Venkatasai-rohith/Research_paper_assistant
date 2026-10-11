@@ -1,3 +1,4 @@
+import os
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from langchain_core.documents import Document
 from langchain_community.vectorstores import FAISS
@@ -7,7 +8,6 @@ from core.summary_config import SUMMARY_INSTRUCTIONS
 from core.config import SUMMARY_GROUP_WORDS
 from prompt import PAPER_SUMMARY_PROMPT
 from schemas import SummaryType
-import time
 
 def get_documents_from_vectorstore(vectorstore: FAISS)-> list[Document]:
     if vectorstore is None:
@@ -86,12 +86,6 @@ def summarize_group(index: int, group: list[Document], chain, instruction: str) 
         doc.page_content for doc in group
     )
 
-    print(
-        f"Processing group {index + 1} | "
-        f"Characters: {len(group_text)} | "
-        f"Words: {len(group_text.split())}"
-    )
-
     try:
 
         response = chain.invoke(
@@ -102,13 +96,6 @@ def summarize_group(index: int, group: list[Document], chain, instruction: str) 
         )
 
     except Exception:
-
-        print(
-            f"FAILED MAP GROUP {index + 1} | "
-            f"Characters: {len(group_text)} | "
-            f"Words: {len(group_text.split())}"
-        )
-
         raise
 
     return index, response.content
@@ -138,7 +125,8 @@ def generate_partial_summaries(grouped_documents: list[list[Document]], llm: Bas
     chain = PAPER_SUMMARY_PROMPT | llm
 
     results = [None] * len(grouped_documents)
-    workers = min(len(grouped_documents), 8) or 1
+    max_workers = int(os.getenv("SUMMARY_MAP_REDUCE_MAX_WORKERS", "8"))
+    workers = min(len(grouped_documents), max(1, max_workers))
 
     with ThreadPoolExecutor(max_workers=workers) as executor:
 
@@ -158,11 +146,6 @@ def generate_partial_summaries(grouped_documents: list[list[Document]], llm: Bas
             index, summary = future.result()
 
             results[index] = summary
-
-            print(
-                f"Completed group {index + 1}/"
-                f"{len(grouped_documents)}"
-            )
 
     return results
 
@@ -199,39 +182,3 @@ def stream_combine_partial_summaries(
         if chunk.content:
             yield chunk.content
 
-def summarize_document(vectorstore: FAISS, llm: BaseChatModel, summary_type: SummaryType) -> dict:
-
-    documents = get_documents_from_vectorstore(vectorstore)
-    print(f"Original chunks: {len(documents)}")
-
-    documents = filter_documents(documents)
-    print(f"Chunks after filtering: {len(documents)}")
-
-    groups = group_documents(documents, SUMMARY_GROUP_WORDS)
-
-    start = time.perf_counter()
-
-    partial_summaries = generate_partial_summaries(
-        groups,
-        llm,
-        summary_type
-    )
-
-    print(f"Map stage took: {time.perf_counter() - start:.2f} seconds")
-
-    start = time.perf_counter()
-
-    final_summary = combine_partial_summaries(
-        partial_summaries,
-        llm,
-        summary_type
-    )
-
-    print(f"Reduce stage took: {time.perf_counter() - start:.2f} seconds")
-
-    citations = build_citations(documents)
-
-    return {
-        "answer": final_summary,
-        "citations": citations
-    }

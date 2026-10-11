@@ -1,4 +1,7 @@
+import sys
 import os
+
+sys.modules.setdefault("tensorflow", None)
 os.environ["USE_TF"] = "0"
 os.environ["TRANSFORMERS_NO_TF"] = "1"
 

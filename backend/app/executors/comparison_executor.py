@@ -50,8 +50,6 @@ class ComparisonExecutor:
 
             context += "-" * 60 + "\n\n"
 
-        print(context)
-
         prompt = COMPARISON_PROMPT.format(question=plan.user_query, context=context)
 
         response = self.llm.invoke(prompt)

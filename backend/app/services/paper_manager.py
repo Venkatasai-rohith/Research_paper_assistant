@@ -7,7 +7,7 @@ from core.config import HYBRID_CANDIDATE_K
 from langchain_community.retrievers import BM25Retriever
 from langchain_community.vectorstores import FAISS
 
-PAPERS_DIR = Path("storage/papers")
+PAPERS_DIR = Path(__file__).resolve().parent.parent / "storage" / "papers"
 PAPERS_DIR.mkdir(parents=True, exist_ok=True)
 
 class PaperManager:
@@ -158,8 +158,6 @@ class PaperManager:
                 "retriever": retriever,
                 "bm25_retriever": bm25_retriever,
             }
-
-        print(f"Loaded {len(self._papers)} papers.")
 
 
     def delete_paper(self, paper_id: str):

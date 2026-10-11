@@ -1,22 +1,23 @@
-# 📚 Research Paper Assistant
+# Research Paper Assistant
 
 An AI-powered research paper assistant that lets you upload PDF papers and have intelligent conversations about them. Ask questions, get summaries, and compare papers using a hybrid retrieval-augmented generation (RAG) pipeline.
 
 ---
 
-## ✨ Features
+## Features
 
-- **📄 PDF Upload** — Upload one or more research papers (PDFs) and have them indexed automatically.
-- **🔍 Intelligent Q&A** — Ask specific questions and get answers grounded in the papers, with citations.
-- **📝 Summarization** — Generate brief, detailed, technical, student-friendly, or bullet-point summaries.
-- **⚖️ Paper Comparison** — Ask the assistant to compare multiple uploaded papers side by side.
-- **🔄 Streaming Responses** — Answers are streamed in real time via Server-Sent Events (SSE).
-- **🧠 Hybrid Retrieval** — Combines dense vector search (FAISS) and sparse keyword search (BM25) using Reciprocal Rank Fusion (RRF) for high-quality retrieval.
-- **💾 Persistent Storage** — Uploaded papers and their vector indexes are saved and survive server restarts.
+- ** PDF Upload** — Upload one or more research papers (PDFs) and have them indexed automatically.
+- ** Intelligent Q&A** — Ask specific questions and get answers grounded in the papers, with citations.
+- ** Summarization** — Generate brief, detailed, technical, student-friendly, or bullet-point summaries.
+- ** Paper Comparison** — Ask the assistant to compare multiple uploaded papers side by side.
+- ** Streaming Responses** — Answers are streamed in real time via Server-Sent Events (SSE).
+- ** Hybrid Retrieval** — Combines dense vector search (FAISS) and sparse keyword search (BM25) using Reciprocal Rank Fusion (RRF) for high-quality retrieval.
+- ** Persistent Storage** — Uploaded papers and their vector indexes are saved and survive server restarts.
+- ** RAG Evaluation Suite** — Benchmark planner routing, hybrid retrieval, Q&A, and summarization against a fixed test suite (`backend/eval`).
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 User → React Frontend → FastAPI Backend
@@ -40,7 +41,7 @@ User → React Frontend → FastAPI Backend
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Backend
 | Component | Technology |
@@ -64,7 +65,7 @@ User → React Frontend → FastAPI Backend
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -127,7 +128,7 @@ The frontend will start at **http://localhost:5173**.
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 Research_assistant/
@@ -135,6 +136,16 @@ Research_assistant/
 ├── README.md
 ├── backend/
 │   ├── requirements.txt          # Python dependencies
+│   ├── eval/                     # RAG evaluation suite (see below)
+│   │   ├── run_eval.py           # Master runner for all evaluators
+│   │   ├── test_cases.py         # QA, comparison, summary, planner cases
+│   │   ├── eval_retrieval.py     # Planner + retrieval metrics (P@K, MRR)
+│   │   ├── eval_answer.py        # Answer faithfulness & relevance (LLM judge)
+│   │   ├── eval_summary.py       # Summary coverage, coherence, conciseness
+│   │   ├── rate_limit.py         # Throttling & retries for Groq 429 / quota
+│   │   ├── requirements_eval.txt # Optional deps (RAGAS, pandas, etc.)
+│   │   ├── EVALUATION_REPORT.md  # Latest benchmark write-up
+│   │   └── results/              # Timestamped JSON/CSV reports (--save)
 │   └── app/
 │       ├── .env                  # Your secrets (never commit this)
 │       ├── .env.example          # Template for environment variables
@@ -159,7 +170,6 @@ Research_assistant/
 │       │   ├── research_service.py # Orchestrates planner + executors
 │       │   ├── citation_builder.py # Citation metadata builder
 │       │   ├── evidence_plan.py  # EvidencePlan dataclass
-│       │   ├── router.py         # Rule-based fallback router
 │       │   └── llm.py            # Groq LLM client
 │       ├── executors/
 │       │   ├── qa_executor.py        # Q&A execution
@@ -193,7 +203,7 @@ Research_assistant/
 
 ---
 
-## 🔌 API Endpoints
+## API Endpoints
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
@@ -221,13 +231,13 @@ event: end        → {}
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
 ### Backend (`backend/app/.env`)
 
 | Variable | Required | Default | Description |
 |----------|----------|---------|-------------|
-| `GROK_API_KEY` | ✅ Yes | — | Your Groq API key |
+| `GROK_API_KEY` |  Yes | — | Your Groq API key |
 | `ALLOWED_ORIGINS` | No | `localhost:5173` | Comma-separated CORS origins |
 
 ### Frontend (`frontend/.env`)
@@ -238,6 +248,74 @@ event: end        → {}
 
 ---
 
-## 📄 License
+## RAG evaluation (`backend/eval`)
+
+The **`eval`** folder is an offline benchmark for the full RAG stack. It loads the same papers, embeddings, and services as the running app and scores them on curated questions in `test_cases.py` (planner routing, hybrid retrieval, Q&A, comparisons, and summaries).
+
+| Module | What it measures |
+|--------|------------------|
+| `eval_retrieval.py` | Research planner intent & paper routing; hybrid retriever Precision@K, Recall@K, MRR |
+| `eval_answer.py` | End-to-end answers — faithfulness and relevance via LLM-as-judge; optional [RAGAS](https://github.com/explodinggradients/ragas) |
+| `eval_summary.py` | Map-reduce summaries — coverage, coherence, conciseness (LLM-as-judge) |
+| `run_eval.py` | Runs the modules above and optionally writes artifacts to `eval/results/` |
+
+### Prerequisites
+
+- Backend dependencies installed and `GROK_API_KEY` set in `backend/app/.env`.
+- Benchmark PDFs already uploaded and indexed under `backend/app/storage/papers/` (the suite expects the papers referenced in `test_cases.py` to be present).
+
+### Run the suite
+
+From the **`backend/`** directory:
+
+```bash
+# Full suite (planner + retrieval + Q&A + summaries)
+python eval/run_eval.py
+
+# Subsets
+python eval/run_eval.py --retrieval
+python eval/run_eval.py --answer
+python eval/run_eval.py --summary
+
+# Persist JSON, CSV, and a Markdown report under eval/results/
+python eval/run_eval.py --save
+
+# Optional RAGAS metrics (extra packages)
+pip install -r eval/requirements_eval.txt
+python eval/run_eval.py --answer --ragas
+```
+
+### Groq rate limits
+
+The suite makes many LLM calls (planner, long streamed answers, and two judge calls per QA case). On Groq free tiers you may see **429** or **daily token quota** errors.
+
+**Lower load:**
+
+```bash
+# Retrieval only — no answer/summary generation (retrieval uses local FAISS/BM25)
+python eval/run_eval.py --retrieval
+
+# Fewer cases, longer pause between API calls
+python eval/run_eval.py --max-cases 5 --delay 8
+
+# Generate answers but skip LLM-as-judge (saves ~2 calls per case)
+python eval/run_eval.py --answer --skip-judge --max-cases 3 --delay 10
+```
+
+**Environment variables** (optional): `EVAL_REQUEST_DELAY_SEC`, `EVAL_CASE_DELAY_SEC`, `EVAL_MAX_RETRIES`, `EVAL_BACKOFF_BASE_SEC`.
+
+By default, eval runs **serial map-reduce summaries** (`SUMMARY_MAP_REDUCE_MAX_WORKERS=1`) because the app otherwise fires up to 8 parallel Groq calls per long paper. Use `--parallel-summaries` only if your Groq tier allows it.
+
+If you hit **daily quota**, wait for the Groq limit to reset or upgrade the plan; the runner stops remaining LLM-heavy steps when quota is exhausted.
+
+The HF Hub “unauthenticated requests” warning is harmless for local embeddings; set `HF_TOKEN` if model downloads are slow or rate-limited.
+
+Individual modules can also be run as modules, e.g. `python -m eval.eval_retrieval`.
+
+See `backend/eval/EVALUATION_REPORT.md` for example scores and methodology.
+
+---
+
+## License
 
 MIT

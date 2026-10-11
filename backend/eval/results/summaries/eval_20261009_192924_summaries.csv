@@ -1,0 +1,3 @@
+id,paper_ids,word_count,coverage,coherence,conciseness
+sum_001,['50b44e24-90d5-46a4-8bea-ad896c4a212d'],221,5,5,4
+sum_002,['019ed9f9-52b8-40f6-ba89-5146192f001a'],257,5,5,4

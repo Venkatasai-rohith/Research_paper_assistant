@@ -1,0 +1,14 @@
+{
+  "summaries": [
+    {
+      "id": "sum_001",
+      "paper_ids": [
+        "50b44e24-90d5-46a4-8bea-ad896c4a212d"
+      ],
+      "word_count": 192,
+      "coverage": 5,
+      "coherence": 5,
+      "conciseness": 4
+    }
+  ]
+}

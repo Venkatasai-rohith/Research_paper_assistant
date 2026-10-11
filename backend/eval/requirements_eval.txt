@@ -1,0 +1,7 @@
+# Evaluation dependencies (install separately from the backend/ dir):
+#   pip install -r eval/requirements_eval.txt
+ragas==0.1.21
+langchain-openai
+datasets<3.0
+pandas
+openpyxl

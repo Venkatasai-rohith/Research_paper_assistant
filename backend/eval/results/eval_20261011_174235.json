@@ -1,0 +1,548 @@
+{
+  "planner": [
+    {
+      "id": "plan_001",
+      "question": "How does multi-head attention work in the Transformer paper?",
+      "expected_intent": "qa",
+      "predicted_intent": "qa",
+      "intent_correct": true,
+      "expected_papers": [
+        "50b44e24-90d5-46a4-8bea-ad896c4a212d"
+      ],
+      "predicted_papers": [
+        "50b44e24-90d5-46a4-8bea-ad896c4a212d"
+      ],
+      "papers_correct": true
+    },
+    {
+      "id": "plan_002",
+      "question": "Summarize the Euclid MCP paper.",
+      "expected_intent": "summary",
+      "predicted_intent": "summary",
+      "intent_correct": true,
+      "expected_papers": [
+        "019ed9f9-52b8-40f6-ba89-5146192f001a"
+      ],
+      "predicted_papers": [
+        "019ed9f9-52b8-40f6-ba89-5146192f001a"
+      ],
+      "papers_correct": true
+    },
+    {
+      "id": "plan_003",
+      "question": "Compare Euclid MCP and Attention Is All You Need.",
+      "expected_intent": "comparison",
+      "predicted_intent": "comparison",
+      "intent_correct": true,
+      "expected_papers": [
+        "019ed9f9-52b8-40f6-ba89-5146192f001a",
+        "50b44e24-90d5-46a4-8bea-ad896c4a212d"
+      ],
+      "predicted_papers": [
+        "019ed9f9-52b8-40f6-ba89-5146192f001a",
+        "50b44e24-90d5-46a4-8bea-ad896c4a212d"
+      ],
+      "papers_correct": true
+    },
+    {
+      "id": "plan_004",
+      "question": "What is the capital of France?",
+      "expected_intent": "unanswerable",
+      "predicted_intent": "unanswerable",
+      "intent_correct": true,
+      "expected_papers": [],
+      "predicted_papers": [],
+      "papers_correct": true
+    },
+    {
+      "id": "plan_005",
+      "question": "What is the formula for scaled dot-product attention in Attention Is All You Need?",
+      "expected_intent": "qa",
+      "predicted_intent": "qa",
+      "intent_correct": true,
+      "expected_papers": [
+        "50b44e24-90d5-46a4-8bea-ad896c4a212d"
+      ],
+      "predicted_papers": [
+        "50b44e24-90d5-46a4-8bea-ad896c4a212d"
+      ],
+      "papers_correct": true
+    },
+    {
+      "id": "plan_006",
+      "question": "What is Euclid-IR and how does it interface with SWI-Prolog?",
+      "expected_intent": "qa",
+      "predicted_intent": "qa",
+      "intent_correct": true,
+      "expected_papers": [
+        "019ed9f9-52b8-40f6-ba89-5146192f001a"
+      ],
+      "predicted_papers": [
+        "019ed9f9-52b8-40f6-ba89-5146192f001a"
+      ],
+      "papers_correct": true
+    },
+    {
+      "id": "plan_007",
+      "question": "Give me a comprehensive summary of Attention Is All You Need.",
+      "expected_intent": "summary",
+      "predicted_intent": "summary",
+      "intent_correct": true,
+      "expected_papers": [
+        "50b44e24-90d5-46a4-8bea-ad896c4a212d"
+      ],
+      "predicted_papers": [
+        "50b44e24-90d5-46a4-8bea-ad896c4a212d"
+      ],
+      "papers_correct": true
+    },
+    {
+      "id": "plan_008",
+      "question": "Provide a detailed summary of the Euclid MCP research paper.",
+      "expected_intent": "summary",
+      "predicted_intent": "summary",
+      "intent_correct": true,
+      "expected_papers": [
+        "019ed9f9-52b8-40f6-ba89-5146192f001a"
+      ],
+      "predicted_papers": [
+        "019ed9f9-52b8-40f6-ba89-5146192f001a"
+      ],
+      "papers_correct": true
+    },
+    {
+      "id": "plan_009",
+      "question": "How do the training paradigms differ between the Transformer and Euclid MCP?",
+      "expected_intent": "comparison",
+      "predicted_intent": "comparison",
+      "intent_correct": true,
+      "expected_papers": [
+        "019ed9f9-52b8-40f6-ba89-5146192f001a",
+        "50b44e24-90d5-46a4-8bea-ad896c4a212d"
+      ],
+      "predicted_papers": [
+        "019ed9f9-52b8-40f6-ba89-5146192f001a",
+        "50b44e24-90d5-46a4-8bea-ad896c4a212d"
+      ],
+      "papers_correct": true
+    },
+    {
+      "id": "plan_010",
+      "question": "Who won the 2022 FIFA World Cup in Qatar?",
+      "expected_intent": "unanswerable",
+      "predicted_intent": "unanswerable",
+      "intent_correct": true,
+      "expected_papers": [],
+      "predicted_papers": [],
+      "papers_correct": true
+    },
+    {
+      "id": "plan_011",
+      "question": "What optimizer settings were used during training in Attention Is All You Need?",
+      "expected_intent": "qa",
+      "predicted_intent": "qa",
+      "intent_correct": true,
+      "expected_papers": [
+        "50b44e24-90d5-46a4-8bea-ad896c4a212d"
+      ],
+      "predicted_papers": [
+        "50b44e24-90d5-46a4-8bea-ad896c4a212d"
+      ],
+      "papers_correct": true
+    },
+    {
+      "id": "plan_012",
+      "question": "How does the translate-run-inspect-repair loop operate in Euclid MCP?",
+      "expected_intent": "qa",
+      "predicted_intent": "qa",
+      "intent_correct": true,
+      "expected_papers": [
+        "019ed9f9-52b8-40f6-ba89-5146192f001a"
+      ],
+      "predicted_papers": [
+        "019ed9f9-52b8-40f6-ba89-5146192f001a"
+      ],
+      "papers_correct": true
+    },
+    {
+      "id": "plan_013",
+      "question": "Compare the reasoning reliability of standard neural models versus Euclid-MCP and Transformers.",
+      "expected_intent": "comparison",
+      "predicted_intent": "comparison",
+      "intent_correct": true,
+      "expected_papers": [
+        "019ed9f9-52b8-40f6-ba89-5146192f001a",
+        "50b44e24-90d5-46a4-8bea-ad896c4a212d"
+      ],
+      "predicted_papers": [
+        "019ed9f9-52b8-40f6-ba89-5146192f001a",
+        "50b44e24-90d5-46a4-8bea-ad896c4a212d"
+      ],
+      "papers_correct": true
+    },
+    {
+      "id": "plan_014",
+      "question": "Summarize the experimental machine translation results from the Transformer paper.",
+      "expected_intent": "summary",
+      "predicted_intent": "summary",
+      "intent_correct": true,
+      "expected_papers": [
+        "50b44e24-90d5-46a4-8bea-ad896c4a212d"
+      ],
+      "predicted_papers": [
+        "50b44e24-90d5-46a4-8bea-ad896c4a212d"
+      ],
+      "papers_correct": true
+    },
+    {
+      "id": "plan_015",
+      "question": "Summarize the IT security compliance case study in the Euclid MCP paper.",
+      "expected_intent": "summary",
+      "predicted_intent": "summary",
+      "intent_correct": true,
+      "expected_papers": [
+        "019ed9f9-52b8-40f6-ba89-5146192f001a"
+      ],
+      "predicted_papers": [
+        "019ed9f9-52b8-40f6-ba89-5146192f001a"
+      ],
+      "papers_correct": true
+    },
+    {
+      "id": "plan_016",
+      "question": "What is the recipe for baking chocolate chip cookies?",
+      "expected_intent": "unanswerable",
+      "predicted_intent": "unanswerable",
+      "intent_correct": true,
+      "expected_papers": [],
+      "predicted_papers": [],
+      "papers_correct": true
+    },
+    {
+      "id": "plan_017",
+      "question": "What are the inner dimensions of the feed-forward network in the Transformer?",
+      "expected_intent": "qa",
+      "predicted_intent": "qa",
+      "intent_correct": true,
+      "expected_papers": [
+        "50b44e24-90d5-46a4-8bea-ad896c4a212d"
+      ],
+      "predicted_papers": [
+        "50b44e24-90d5-46a4-8bea-ad896c4a212d"
+      ],
+      "papers_correct": true
+    },
+    {
+      "id": "plan_018",
+      "question": "Why is semantic RAG unsuited for compliance rule enforcement according to Euclid MCP?",
+      "expected_intent": "qa",
+      "predicted_intent": "qa",
+      "intent_correct": true,
+      "expected_papers": [
+        "019ed9f9-52b8-40f6-ba89-5146192f001a"
+      ],
+      "predicted_papers": [
+        "019ed9f9-52b8-40f6-ba89-5146192f001a"
+      ],
+      "papers_correct": true
+    },
+    {
+      "id": "plan_019",
+      "question": "Contrast the symbolic approach of Euclid MCP with the deep neural approach of the Transformer.",
+      "expected_intent": "comparison",
+      "predicted_intent": "comparison",
+      "intent_correct": true,
+      "expected_papers": [
+        "019ed9f9-52b8-40f6-ba89-5146192f001a",
+        "50b44e24-90d5-46a4-8bea-ad896c4a212d"
+      ],
+      "predicted_papers": [
+        "019ed9f9-52b8-40f6-ba89-5146192f001a",
+        "50b44e24-90d5-46a4-8bea-ad896c4a212d"
+      ],
+      "papers_correct": true
+    },
+    {
+      "id": "plan_020",
+      "question": "Summarize the architectural components of the Transformer encoder and decoder.",
+      "expected_intent": "qa",
+      "predicted_intent": "qa",
+      "intent_correct": true,
+      "expected_papers": [
+        "50b44e24-90d5-46a4-8bea-ad896c4a212d"
+      ],
+      "predicted_papers": [
+        "50b44e24-90d5-46a4-8bea-ad896c4a212d"
+      ],
+      "papers_correct": true
+    },
+    {
+      "id": "plan_021",
+      "question": "Summarize the open-source tools and proof trace features in Euclid MCP.",
+      "expected_intent": "summary",
+      "predicted_intent": "summary",
+      "intent_correct": true,
+      "expected_papers": [
+        "019ed9f9-52b8-40f6-ba89-5146192f001a"
+      ],
+      "predicted_papers": [
+        "019ed9f9-52b8-40f6-ba89-5146192f001a"
+      ],
+      "papers_correct": true
+    },
+    {
+      "id": "plan_022",
+      "question": "How do I calculate the gravitational orbit of Jupiter?",
+      "expected_intent": "unanswerable",
+      "predicted_intent": "unanswerable",
+      "intent_correct": true,
+      "expected_papers": [],
+      "predicted_papers": [],
+      "papers_correct": true
+    },
+    {
+      "id": "plan_023",
+      "question": "What BLEU score did the Transformer model achieve on English-to-German?",
+      "expected_intent": "qa",
+      "predicted_intent": "qa",
+      "intent_correct": true,
+      "expected_papers": [
+        "50b44e24-90d5-46a4-8bea-ad896c4a212d"
+      ],
+      "predicted_papers": [
+        "50b44e24-90d5-46a4-8bea-ad896c4a212d"
+      ],
+      "papers_correct": true
+    },
+    {
+      "id": "plan_024",
+      "question": "What Horn-clause representation is introduced by the Euclid-MCP server?",
+      "expected_intent": "qa",
+      "predicted_intent": "qa",
+      "intent_correct": true,
+      "expected_papers": [
+        "019ed9f9-52b8-40f6-ba89-5146192f001a"
+      ],
+      "predicted_papers": [
+        "019ed9f9-52b8-40f6-ba89-5146192f001a"
+      ],
+      "papers_correct": true
+    },
+    {
+      "id": "plan_025",
+      "question": "Compare the error modes and hallucination behavior of Transformers and Euclid MCP.",
+      "expected_intent": "comparison",
+      "predicted_intent": "comparison",
+      "intent_correct": true,
+      "expected_papers": [
+        "019ed9f9-52b8-40f6-ba89-5146192f001a",
+        "50b44e24-90d5-46a4-8bea-ad896c4a212d"
+      ],
+      "predicted_papers": [
+        "019ed9f9-52b8-40f6-ba89-5146192f001a",
+        "50b44e24-90d5-46a4-8bea-ad896c4a212d"
+      ],
+      "papers_correct": true
+    }
+  ],
+  "retrieval": [
+    {
+      "id": "qa_001",
+      "question": "What is the Transformer architecture based on and what does it dispense with?",
+      "retrieved_k": 5,
+      "relevant_retrieved": 5,
+      "precision": 1.0,
+      "hit_at_k": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "id": "qa_002",
+      "question": "What optimizer and learning rate formula or schedule were used for training the Transformer?",
+      "retrieved_k": 5,
+      "relevant_retrieved": 2,
+      "precision": 0.4,
+      "hit_at_k": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "id": "qa_003",
+      "question": "What is Euclid-MCP and what engine does it use for logical reasoning?",
+      "retrieved_k": 5,
+      "relevant_retrieved": 4,
+      "precision": 0.8,
+      "hit_at_k": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "id": "qa_004",
+      "question": "How does Scaled Dot-Product Attention compute its outputs mathematically?",
+      "retrieved_k": 5,
+      "relevant_retrieved": 4,
+      "precision": 0.8,
+      "hit_at_k": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "id": "qa_005",
+      "question": "What is the purpose of scaling by the square root of d_k in attention?",
+      "retrieved_k": 5,
+      "relevant_retrieved": 3,
+      "precision": 0.6,
+      "hit_at_k": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "id": "qa_006",
+      "question": "How is Multi-Head Attention structured and why is it beneficial compared to single attention?",
+      "retrieved_k": 5,
+      "relevant_retrieved": 5,
+      "precision": 1.0,
+      "hit_at_k": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "id": "qa_007",
+      "question": "What positional encoding formulation is used in the Transformer and why?",
+      "retrieved_k": 5,
+      "relevant_retrieved": 3,
+      "precision": 0.6,
+      "hit_at_k": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "id": "qa_008",
+      "question": "What is the dimensionality d_model and number of layers N in the base Transformer model?",
+      "retrieved_k": 5,
+      "relevant_retrieved": 4,
+      "precision": 0.8,
+      "hit_at_k": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "id": "qa_009",
+      "question": "What BLEU scores did the Transformer achieve on the WMT 2014 English-to-German and English-to-French tasks?",
+      "retrieved_k": 5,
+      "relevant_retrieved": 5,
+      "precision": 1.0,
+      "hit_at_k": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "id": "qa_010",
+      "question": "Why does the Transformer use masked multi-head attention in its decoder?",
+      "retrieved_k": 5,
+      "relevant_retrieved": 2,
+      "precision": 0.4,
+      "hit_at_k": 1.0,
+      "mrr": 0.5
+    },
+    {
+      "id": "qa_011",
+      "question": "What regularization techniques were used during training the Transformer?",
+      "retrieved_k": 5,
+      "relevant_retrieved": 4,
+      "precision": 0.8,
+      "hit_at_k": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "id": "qa_012",
+      "question": "What is Euclid-IR and how is it used in Euclid-MCP?",
+      "retrieved_k": 5,
+      "relevant_retrieved": 3,
+      "precision": 0.6,
+      "hit_at_k": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "id": "qa_013",
+      "question": "What is the translate-run-inspect-repair loop in Euclid-MCP?",
+      "retrieved_k": 5,
+      "relevant_retrieved": 4,
+      "precision": 0.8,
+      "hit_at_k": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "id": "qa_014",
+      "question": "In what scenario do LLMs hallucinate compared to Euclid-MCP in the compliance evaluation?",
+      "retrieved_k": 5,
+      "relevant_retrieved": 5,
+      "precision": 1.0,
+      "hit_at_k": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "id": "qa_015",
+      "question": "Why does the Euclid-MCP paper argue semantic RAG is fundamentally unsuited for rule enforcement?",
+      "retrieved_k": 5,
+      "relevant_retrieved": 4,
+      "precision": 0.8,
+      "hit_at_k": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "id": "qa_016",
+      "question": "What tools or interface does the Euclid-MCP server expose to LLM clients?",
+      "retrieved_k": 5,
+      "relevant_retrieved": 4,
+      "precision": 0.8,
+      "hit_at_k": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "id": "qa_017",
+      "question": "How does Euclid-MCP provide deterministic explainability or proof traces?",
+      "retrieved_k": 5,
+      "relevant_retrieved": 1,
+      "precision": 0.2,
+      "hit_at_k": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "id": "qa_018",
+      "question": "What hardware and training time were required for the base Transformer model?",
+      "retrieved_k": 5,
+      "relevant_retrieved": 3,
+      "precision": 0.6,
+      "hit_at_k": 1.0,
+      "mrr": 0.5
+    },
+    {
+      "id": "qa_019",
+      "question": "What tokenization approaches were used for English-German and English-French in Attention Is All You Need?",
+      "retrieved_k": 5,
+      "relevant_retrieved": 2,
+      "precision": 0.4,
+      "hit_at_k": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "id": "qa_020",
+      "question": "What IT security and compliance use case is evaluated in the Euclid-MCP paper?",
+      "retrieved_k": 5,
+      "relevant_retrieved": 5,
+      "precision": 1.0,
+      "hit_at_k": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "id": "qa_021",
+      "question": "How does the Transformer feed-forward network compute its activations?",
+      "retrieved_k": 5,
+      "relevant_retrieved": 5,
+      "precision": 1.0,
+      "hit_at_k": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "id": "qa_022",
+      "question": "What is the main conclusion of the Euclid-MCP paper regarding hybrid cognitive architectures?",
+      "retrieved_k": 5,
+      "relevant_retrieved": 4,
+      "precision": 0.8,
+      "hit_at_k": 1.0,
+      "mrr": 1.0
+    }
+  ]
+}

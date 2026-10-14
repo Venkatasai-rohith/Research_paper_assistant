@@ -6,14 +6,14 @@ An AI-powered research paper assistant that lets you upload PDF papers and have 
 
 ## Features
 
-- ** PDF Upload** — Upload one or more research papers (PDFs) and have them indexed automatically.
-- ** Intelligent Q&A** — Ask specific questions and get answers grounded in the papers, with citations.
-- ** Summarization** — Generate brief, detailed, technical, student-friendly, or bullet-point summaries.
-- ** Paper Comparison** — Ask the assistant to compare multiple uploaded papers side by side.
-- ** Streaming Responses** — Answers are streamed in real time via Server-Sent Events (SSE).
-- ** Hybrid Retrieval** — Combines dense vector search (FAISS) and sparse keyword search (BM25) using Reciprocal Rank Fusion (RRF) for high-quality retrieval.
-- ** Persistent Storage** — Uploaded papers and their vector indexes are saved and survive server restarts.
-- ** RAG Evaluation Suite** — Benchmark planner routing, hybrid retrieval, Q&A, and summarization against a fixed test suite (`backend/eval`).
+- PDF Upload — Upload one or more research papers (PDFs) and have them indexed automatically.
+- Intelligent Q&A  — Ask specific questions and get answers grounded in the papers, with citations.
+- Summarization  — Generate brief, detailed, technical, student-friendly, or bullet-point summaries.
+- Paper Comparison  — Ask the assistant to compare multiple uploaded papers side by side.
+- Streaming Responses  — Answers are streamed in real time via Server-Sent Events (SSE).
+- Hybrid Retrieval  — Combines dense vector search (FAISS) and sparse keyword search (BM25) using Reciprocal Rank Fusion (RRF) for high-quality retrieval.
+- Persistent Storage  — Uploaded papers and their vector indexes are saved and survive server restarts.
+- RAG Evaluation Suite  — Benchmark planner routing, hybrid retrieval, Q&A, and summarization against a fixed test suite (`backend/eval`).
 
 ---
 

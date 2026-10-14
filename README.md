@@ -64,6 +64,13 @@ User → React Frontend → FastAPI Backend
 | Math Rendering | KaTeX + rehype-katex |
 
 ---
+## Project Demo
+
+[![Watch the Project Demo](https://img.youtube.com/vi/vBOHCKtW1bQ/0.jpg)](https://youtu.be/vBOHCKtW1bQ)
+
+[Watch the full demo on YouTube](https://youtu.be/vBOHCKtW1bQ)
+
+---
 
 ## Getting Started
 
